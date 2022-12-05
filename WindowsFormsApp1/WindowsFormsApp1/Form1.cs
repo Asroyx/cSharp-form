@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +49,7 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             string oge = textBox1.Text;
+            if(!listBox1.Items.Contains(oge))
             listBox1.Items.Add(oge);
         }
 
@@ -67,8 +68,30 @@ namespace WindowsFormsApp1
         private void button5_Click(object sender, EventArgs e)
         {
             //txtbx1 de yazılan lb1 de var mı?
+            string oge = textBox1.Text;
+            if (listBox1.Items.Contains(oge))
+                label1.Text = oge + " var";
+            else label1.Text = oge + " yok";
+        }
 
-            //öğe ek
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string oge = textBox1.Text;
+            int indis = listBox1.Items.IndexOf(oge);
+            if (indis > 0)
+                label1.Text = oge + " var. " + indis.ToString() + ". öğe.";
+            else label1.Text = oge + " yok";
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Add(listBox1.SelectedItem);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Add(listBox1.SelectedItem);
+            listBox1.Items.Remove(listBox1.SelectedItem);
         }
     }
 }
